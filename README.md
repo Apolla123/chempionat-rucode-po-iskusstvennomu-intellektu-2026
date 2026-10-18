@@ -1,2 +1,21 @@
-# chempionat-rucode-po-iskusstvennomu-intellektu-2026
-chempionat rucode po iskusstvennomu intellektu 2026
+## Ии модель, которая по аудиозаписи определяет, произнесена ли фраза человеком или сгенерирована машиной
+
+Проект обучает бинарный классификатор аудиозаписей для отличения настоящих (bona fide) записей от синтетических/подделанных (spoof) на базе "facebook/wav2vec2-base" из библиотеки Hugging Face Transformers. Модель принимает аудио, приводит его к моно и частоте 16 kHz, извлекает признаки через "AutoFeatureExtractor" и дообучается с головой классификациина 2 класса.
+
+## Структура проекта
+
+```
+project/
+├── train.py                      # обучение модели
+├── predict.py                    # создание ответов нейронки
+├── requirements.txt              # зависимости
+├── data/
+│   ├── train/
+│   │   ├── targets.txt           # метки: filename ... label
+│   │   └── flac/                 # аудиофайлы .flac
+│   ├── private_test/             # тестовые аудиофайлы
+│   └── public_test/              # публичный тест
+├── private_sample_submission.csv # публичный тест
+└── output/
+    └── <SEED>/                   # весы модели
+```
