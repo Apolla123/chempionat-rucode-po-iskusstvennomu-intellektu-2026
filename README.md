@@ -19,3 +19,5 @@ project/
 └── output/
     └── <SEED>/                   # весы модели
 ```
+
+## Запускать predict.py
